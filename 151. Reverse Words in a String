@@ -1,0 +1,16 @@
+class Solution {
+    public String reverseWords(String s) {
+       
+        String reversedString = "";
+        String[] strArray = s.split(" ");
+        for(int i=strArray.length-1; i>=0; i--){
+            System.out.println(strArray[i]);
+             if(strArray[i].length() != 0){
+               reversedString = reversedString + strArray[i] +" ";
+             }     
+        }
+        String output = reversedString.trim();
+        return output;
+        
+    }
+}
