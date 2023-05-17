@@ -1,0 +1,59 @@
+class Solution {
+    public int romanToInt(String s) {
+        
+        int romanValueCurrent = 0;
+        int romanValueNext = 0;
+        int result = 0;
+
+        for(int i=0; i<s.length(); i++){
+            romanValueCurrent = romaValue(s.charAt(i));
+            if(i+1 < s.length()){
+                romanValueNext = romaValue(s.charAt(i +1)); 
+
+                System.out.println(romanValueCurrent);
+                System.out.println(romanValueNext);
+                //break;
+
+                if(romanValueCurrent >= romanValueNext)
+                    result += romanValueCurrent;
+
+                else{
+                    result = result + (romanValueNext - romanValueCurrent);
+                    i++;
+                }
+            }
+            else{
+                result += romanValueCurrent;
+            }
+        }
+
+        return result;
+    }
+
+    static public int romaValue(char a){
+        int value = 0;
+
+            if(a == 'I')
+                return 1;
+            
+             if(a == 'V')
+                return 5;
+            
+             if(a == 'X')
+                return  10;
+            
+             if(a == 'L')
+                return  50;
+            
+             if(a == 'C')
+                return 100;
+            
+             if(a == 'D')
+                return 500;
+            
+             if(a == 'M')
+                return 1000;
+            
+    return -1;
+    }
+}
